@@ -4,25 +4,35 @@
     <title>Amarha Love Scale</title>
     <style>
         body {
-            background: linear-gradient(45deg, #ff758c, #ff7eb3);
+            background: #f4f4f4;
             font-family: Arial, sans-serif;
             text-align: center;
-            color: white;
+            color: #333;
         }
         .container {
             margin-top: 100px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
         }
         input, button {
             padding: 10px;
             margin: 10px;
-            border: none;
+            border: 1px solid #ccc;
             border-radius: 5px;
+            width: 100%;
         }
         button {
-            background: yellow;
-            color: black;
-            font-weight: bold;
+            background: #007BFF;
+            color: white;
             cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
         }
         .page {
             display: none;
@@ -37,10 +47,10 @@
     <!-- Login Page -->
     <div id="loginPage" class="page active">
         <div class="container">
-            <h1>Login with Snapchat</h1>
+            <h1>Login</h1>
             <form id="loginForm">
-                <input type="text" id="username" placeholder="Snapchat Username" required><br>
-                <input type="password" id="password" placeholder="Password" required><br>
+                <input type="text" id="username" placeholder="Enter Username" required><br>
+                <input type="password" id="password" placeholder="Enter Password" required><br>
                 <button type="submit">Log In</button>
             </form>
         </div>
@@ -58,7 +68,7 @@
     <!-- Love Rating Page -->
     <div id="ratePage" class="page">
         <div class="container">
-            <h1>How much do you love Amarha? ❤️</h1>
+            <h1>Rate Your Love for Amarha</h1>
             <input type="number" id="loveScale" min="1" max="10" required>
             <button onclick="submitRating()">Submit</button>
         </div>
@@ -67,7 +77,7 @@
     <!-- Eid Mubarak Page -->
     <div id="eidPage" class="page">
         <div class="container">
-            <h1>🎉 Eid Mubarak, Begum! 🎊</h1>
+            <h1>Eid Mubarak, Begum! 🎉</h1>
             <p>May your love for Amarha be infinite! 💕</p>
         </div>
     </div>
@@ -80,27 +90,14 @@
 
         document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            console.log("Login form submitted");
-
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
-
-            console.log("Username:", username);
-            console.log("Password:", password);
-
-            // Skip Google Sheets and go to next page directly
             showPage("namePage");
         });
 
         function goToRating() {
-            let name = document.getElementById("name").value;
-            localStorage.setItem("username", name);
             showPage("ratePage");
         }
 
         function submitRating() {
-            let rating = document.getElementById("loveScale").value;
-            localStorage.setItem("loveRating", rating);
             showPage("eidPage");
         }
     </script>

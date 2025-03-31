@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amarha Love Scale</title>
     <style>
         body {
@@ -29,78 +31,4 @@
         button {
             background: #007BFF;
             color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .page {
-            display: none;
-        }
-        .active {
-            display: block;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Login Page -->
-    <div id="loginPage" class="page active">
-        <div class="container">
-            <h1>Login</h1>
-            <form id="loginForm">
-                <input type="text" id="username" placeholder="Enter Username" required><br>
-                <input type="password" id="password" placeholder="Enter Password" required><br>
-                <button type="submit">Log In</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Enter Name Page -->
-    <div id="namePage" class="page">
-        <div class="container">
-            <h1>Enter Your Name</h1>
-            <input type="text" id="name" placeholder="Your Name" required>
-            <button onclick="goToRating()">Next</button>
-        </div>
-    </div>
-
-    <!-- Love Rating Page -->
-    <div id="ratePage" class="page">
-        <div class="container">
-            <h1>Rate Your Love for Amarha</h1>
-            <input type="number" id="loveScale" min="1" max="10" required>
-            <button onclick="submitRating()">Submit</button>
-        </div>
-    </div>
-
-    <!-- Eid Mubarak Page -->
-    <div id="eidPage" class="page">
-        <div class="container">
-            <h1>Eid Mubarak, Begum! 🎉</h1>
-            <p>May your love for Amarha be infinite! 💕</p>
-        </div>
-    </div>
-
-    <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-        }
-
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            showPage("namePage");
-        });
-
-        function goToRating() {
-            showPage("ratePage");
-        }
-
-        function submitRating() {
-            showPage("eidPage");
-        }
-    </script>
-
-</body>
-</html>
+            cursor: pointer

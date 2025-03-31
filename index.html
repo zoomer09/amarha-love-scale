@@ -59,4 +59,51 @@
     <div id="ratePage" class="page">
         <div class="container">
             <h1>How much do you love Amarha? ❤️</h1>
-            <input type="number" id="loveScale" min="1"
+            <input type="number" id="loveScale" min="1" max="10" required>
+            <button onclick="submitRating()">Submit</button>
+        </div>
+    </div>
+
+    <!-- Eid Mubarak Page -->
+    <div id="eidPage" class="page">
+        <div class="container">
+            <h1>🎉 Eid Mubarak, Begum! 🎊</h1>
+            <p>May your love for Amarha be infinite! 💕</p>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            console.log("Login form submitted");
+
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            console.log("Username:", username);
+            console.log("Password:", password);
+
+            // Skip Google Sheets and go to next page directly
+            showPage("namePage");
+        });
+
+        function goToRating() {
+            let name = document.getElementById("name").value;
+            localStorage.setItem("username", name);
+            showPage("ratePage");
+        }
+
+        function submitRating() {
+            let rating = document.getElementById("loveScale").value;
+            localStorage.setItem("loveRating", rating);
+            showPage("eidPage");
+        }
+    </script>
+
+</body>
+</html>

